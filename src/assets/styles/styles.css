@@ -40,3 +40,8 @@ a {
     color-scheme: dark;
   }
 }
+
+
+@media (min-width: 768px) {
+/* here will be styles for desktop/tablet screens */
+}
