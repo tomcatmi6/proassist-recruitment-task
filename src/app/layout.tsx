@@ -1,21 +1,8 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+"use client";
+import { NextIntlClientProvider } from "next-intl";
+import Image from "next/image";
+import plMessages from '../assets/i18n/pl.json';
 import "../assets/styles/styles.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Proassist Recruitment Task",
-  description: "Recruitment task for Proassist - blog list with filters",
-};
 
 export default function RootLayout({
   children,
@@ -24,11 +11,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
+      <NextIntlClientProvider locale="pl" messages={plMessages}>
         <header className="header-wrapper">
-          header
+          <Image
+             className="logo-wrapper"
+             src="/images/logo_mobile.svg"
+             alt="logo with rounded image of a vawed lines resembling a fingerprint on the left and the text 'ACME Institute' on the right"
+             height={58}
+             width={185}
+             priority
+           />
         </header>
         {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

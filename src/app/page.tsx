@@ -1,23 +1,44 @@
-import Image from "next/image";
+'use client';
+
+import { CategoryType } from "@/components/CategoriesList";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+export interface BlogPost {
+  id: number;
+  title: string;
+  shortDescription: string;
+  content: string;
+  blogImageUrl: string;
+  category: CategoryType;
+  createdAt: string;
+};
 
 export default function Home() {
-  return (
-      <main className="main-wrapper">
-        <Image
-          className="logo-wrapper"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const t = useTranslations('heading');
 
-      </main>
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await fetch('http://tomcatmi6.usermd.net:3456/posts', {
+        cache: 'no-store', 
+      });
+      const data: BlogPost[] = await res.json();
+      setPosts(data);
+    };
+
+    fetchPosts();
+  }, []);
+
+  return (
+    <main className="main-wrapper">
+      <h1 className="main-heading">{t('title')}</h1>
+      <ul>
+        {posts.map((post: BlogPost) => (
+          <li key={post.id}>
+            <strong>{post.title}</strong> - <div dangerouslySetInnerHTML={{ __html: `${post.content}` }}></div>
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }

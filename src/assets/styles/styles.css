@@ -1,6 +1,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* header variables */
+  --header-padding-desktop: 63px 144px;
+  --header-padding-mobile: 30px 29px;
+  --logo-height: 58px;
+
+  --font-size-xxl: 28px;
+  --font-size-xl: 24px;
+  --font-size-lg: 20px;
+  --font-size-md: 16px;
+  --font-size-sm: 14px;
+  --font-size-xs: 12px;
+
+  --default-font-family: Open Sans, sans-serif;
+  --blog-heading-font-family: 'Playfair Display', serif;
+  --blog-card-gap: 36px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +38,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.header-wrapper {
+  padding: var(--header-padding-mobile);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-wrapper .logo {
+  height: var(--logo-height);
 }
 
 * {

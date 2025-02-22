@@ -1,0 +1,35 @@
+{
+    "heading": {
+        "title": "Blog Edukacyjny",
+        "addToFavourites": "dodaj do ulubionych",
+        "removeFromFavourites": "usuń z ulubionych"
+    },
+    "categoriesList": {
+      "title": "Kategorie",
+      "knowledge": "Wiedza",
+      "inspirations": "Inspiracje",
+      "interpretations": "Interpretacje",
+      "available": "Dostępne"
+    },
+    "blogList": {
+        "title": "Wpisy",
+        "noPosts": "Brak wpisów",
+        "filters": {
+            "title": "Filtry",
+            "all": "Wszystkie",
+            "knowledge": "Wiedza",
+            "inspirations": "Inspiracje",
+            "interpretations": "Interpretacje",
+            "available": "Dostępne",
+            "favourites": "Ulubione",
+            "showFrom": "Pokaż od",
+            "newest": "Najnowsze",
+            "oldest": "Najstarsze"
+        },
+        "blogItem": {
+            "readMore": "Czytaj więcej",
+            "addToFavourites": "Dodaj do ulubionych",
+            "removeFromFavourites": "Usuń z ulubionych"
+        }
+    }
+  }
