@@ -1,8 +1,8 @@
 import React from 'react';
-import { CategoryType } from '../CategoriesList';
 import Image from 'next/image';
 import { categoryConfig } from '../CategoriesList/categoriesConfig';
 import { useTranslations } from 'next-intl';
+import { CategoryType } from '@/types/categories';
 
 interface CategoryCardProps {
   name: CategoryType;
@@ -11,7 +11,7 @@ interface CategoryCardProps {
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ name, isSelected=true, handleClick }) => {
-  const { backgroundImage, icon, color, borderColor, iconWidth, iconHeight } = categoryConfig[name];
+  const { backgroundImage, icon, color, borderColor, textColor, iconWidth, iconHeight } = categoryConfig[name];
     const t = useTranslations('categoriesList');
 
   return (
@@ -26,8 +26,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, isSelected=true, hand
         className="category-card-image"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />
-      <div className="category-card-content" style={{ backgroundColor: color }}>
-      <h2 className="category-card-title">{t(name)}</h2>
+      <div className="category-card-content" style={{ backgroundColor: color, color: textColor }}>
+      <h3 className="category-card-title">{t(name)}</h3>
         <div className="category-card-icon-container"  style={{ width: iconWidth, height: iconHeight }}>
 
         <Image

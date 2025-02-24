@@ -13,23 +13,23 @@
     },
     "blogList": {
         "title": "Wpisy",
-        "noPosts": "Brak wpisów",
-        "filters": {
-            "title": "Filtry",
-            "all": "Wszystkie",
-            "knowledge": "Wiedza",
-            "inspirations": "Inspiracje",
-            "interpretations": "Interpretacje",
-            "available": "Dostępne",
-            "favourites": "Ulubione",
-            "showFrom": "Pokaż od",
-            "newest": "Najnowsze",
-            "oldest": "Najstarsze"
-        },
-        "blogItem": {
-            "readMore": "Czytaj więcej",
-            "addToFavourites": "Dodaj do ulubionych",
-            "removeFromFavourites": "Usuń z ulubionych"
-        }
+        "noPosts": "Brak wpisów"
+    },
+    "blogFilters": {
+        "title": "Wpisy",
+        "all": "Wszystkie",
+        "knowledge": "Wiedza",
+        "inspirations": "Inspiracje",
+        "interpretations": "Interpretacje",
+        "available": "Dostępne",
+        "favourites": "Ulubione",
+        "showFrom": "Pokaż od",
+        "newest": "Najnowsze wpisy",
+        "oldest": "Najstarsze"
+    },
+    "blogItem": {
+        "readMore": "zobacz więcej",
+        "addToFavourites": "Dodaj do ulubionych",
+        "removeFromFavourites": "Usuń z ulubionych"
     }
   }
