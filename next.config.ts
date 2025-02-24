@@ -3,6 +3,10 @@ const nextConfig = {
   i18n: {
     locales: ["pl"],
     defaultLocale: "pl",
+    localeDetection: false,
+  },
+  env: {
+    NEXT_PUBLIC_TIME_ZONE: 'UTC',
   },
 };
 

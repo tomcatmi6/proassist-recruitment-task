@@ -1,6 +1,6 @@
 'use client';
 
-import { CategoryType } from "@/components/CategoriesList";
+import CategoriesList, { CategoryType } from "@/components/CategoriesList";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 export interface BlogPost {
@@ -32,6 +32,8 @@ export default function Home() {
   return (
     <main className="main-wrapper">
       <h1 className="main-heading">{t('title')}</h1>
+
+      <CategoriesList />
       <ul>
         {posts.map((post: BlogPost) => (
           <li key={post.id}>
