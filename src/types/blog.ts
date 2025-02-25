@@ -8,4 +8,4 @@ export interface BlogPost {
   blogImageUrl: string;
   category: CategoryType;
   createdAt: string;
-};
+}

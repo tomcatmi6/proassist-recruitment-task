@@ -1,8 +1,18 @@
 {
+    "header": {
+        "decorationBlog": "Blog",
+        "logoAltTextMobile": "logo z zaokrąglonym obrazem falistych linii przypominających odcisk palca po lewej stronie i tekstem 'Instytut ACME' po prawej",
+        "logoAltTextDesktop": "logo z zaokrąglonym obrazem falistych linii przypominających odcisk palca po lewej stronie i tekstem 'Instytut ACME' po prawej oraz napisem 'Fikcyjna Instytucja Edukacyjna"
+    },
     "heading": {
         "title": "Blog Edukacyjny",
         "addToFavourites": "dodaj do ulubionych",
-        "removeFromFavourites": "usuń z ulubionych"
+        "removeFromFavourites": "usuń z ulubionych",
+        "httpErrorMessage": "Błąd HTTP! status błędu: ",
+        "fetchErrorMessageWithStatus": "Wystąpił błąd podczas pobierania danych: ",
+        "fetchErrorMessage": "Wystąpił błąd podczas pobierania danych. Spróbuj ponownie później.",
+        "favoutiteAdded": "Dodano do ulubionych",
+        "favoutiteRemoved": "Usunięto z ulubionych"
     },
     "categoriesList": {
       "title": "Kategorie",

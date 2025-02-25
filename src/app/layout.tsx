@@ -1,9 +1,11 @@
 "use client";
 import { NextIntlClientProvider } from "next-intl";
-import Image from "next/image";
 import plMessages from '../assets/i18n/pl.json';
 import "../assets/styles/styles.css";
 import { GlobalProvider } from "@/context/globalContext";
+import Header from "@/components/Header";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout({
   children,
@@ -11,21 +13,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pl">
       <body>
-      <NextIntlClientProvider locale="pl" messages={plMessages}>
-        <header className="header-wrapper">
-          <Image
-             className="logo-wrapper"
-             src="/images/logo_mobile.svg"
-             alt="logo with rounded image of a vawed lines resembling a fingerprint on the left and the text 'ACME Institute' on the right"
-             height={58}
-             width={185}
-             priority
-           />
-        </header>
+      <NextIntlClientProvider locale="pl" messages={plMessages} timeZone="Europe/Warsaw">
+      <Header />
           <GlobalProvider>
             {children}
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
           </GlobalProvider>
         </NextIntlClientProvider>
       </body>

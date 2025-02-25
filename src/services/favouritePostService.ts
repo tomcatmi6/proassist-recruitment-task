@@ -20,7 +20,9 @@ export const addFavouriteBlogPost = (id: number) => {
 };
 
 export const removeFavouriteBlogPost = (id: number) => {
-  const blogPostIds = getFavouriteBlogPostIds().filter((blogPostId) => blogPostId !== id);
+  const blogPostIds = getFavouriteBlogPostIds().filter(
+    (blogPostId) => blogPostId !== id
+  );
   saveFavouriteBlogPostIds(blogPostIds);
 };
 
