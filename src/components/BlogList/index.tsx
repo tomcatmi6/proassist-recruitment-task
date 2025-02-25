@@ -19,7 +19,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogPosts = [] }) => {
                     ))}
                 </ul>
             ) :
-                <p>{t('noPosts')}</p>
+                <p className="no-posts">{t('noPosts')}</p>
             }
 
         </section>

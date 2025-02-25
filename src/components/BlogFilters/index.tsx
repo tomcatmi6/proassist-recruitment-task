@@ -2,6 +2,7 @@ import React from 'react';
 import { CategoryType } from '@/types/categories';
 import { useTranslations } from 'next-intl';
 import { categoryConfig } from '../CategoriesList/categoriesConfig';
+import Image from 'next/image';
 
 interface BlogFiltersProps {
   selectedCategories: CategoryType[];
@@ -43,7 +44,7 @@ const BlogFilters: React.FC<BlogFiltersProps> = ({
                 className="remove-category"
                 onClick={() => onCategoryRemove(category)}
               >
-                &times;
+               <Image src="/images/icons/x_icon.svg" alt="Remove category" width={10} height={10} />
               </button>
             </span>
           ))}

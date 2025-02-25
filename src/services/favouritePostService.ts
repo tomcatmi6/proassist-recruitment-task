@@ -1,31 +1,29 @@
-import { BlogPost } from "@/types/blog";
+const STORAGE_KEY = "favouriteBlogPostIds";
 
-const STORAGE_KEY = "favouriteBlogPosts";
-
-export const getFavouriteBlogPosts = (): BlogPost[] => {
+export const getFavouriteBlogPostIds = (): number[] => {
   if (typeof window === "undefined") return []; // guard for server
-  const storedBlogPosts = localStorage.getItem(STORAGE_KEY);
-  return storedBlogPosts ? JSON.parse(storedBlogPosts) : [];
+  const storedBlogPostIds = localStorage.getItem(STORAGE_KEY);
+  return storedBlogPostIds ? JSON.parse(storedBlogPostIds) : [];
 };
 
-const saveFavouriteBlogPosts = (blogPosts: BlogPost[]) => {
+const saveFavouriteBlogPostIds = (blogPostIds: number[]) => {
   if (typeof window === "undefined") return;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(blogPosts));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(blogPostIds));
 };
 
-export const addFavouriteBlogPost = (blogPost: BlogPost) => {
-  const blogPosts = getFavouriteBlogPosts();
-  if (!blogPosts.some((post) => post.id === blogPost.id)) {
-    blogPosts.push(blogPost);
-    saveFavouriteBlogPosts(blogPosts);
+export const addFavouriteBlogPost = (id: number) => {
+  const blogPostIds = getFavouriteBlogPostIds();
+  if (!blogPostIds.includes(id)) {
+    blogPostIds.push(id);
+    saveFavouriteBlogPostIds(blogPostIds);
   }
 };
 
 export const removeFavouriteBlogPost = (id: number) => {
-  const blogPosts = getFavouriteBlogPosts().filter((blogPost) => blogPost.id !== id);
-  saveFavouriteBlogPosts(blogPosts);
+  const blogPostIds = getFavouriteBlogPostIds().filter((blogPostId) => blogPostId !== id);
+  saveFavouriteBlogPostIds(blogPostIds);
 };
 
 export const isFavouriteBlogPost = (id: number): boolean => {
-  return getFavouriteBlogPosts().some((blogPost) => blogPost.id === id);
+  return getFavouriteBlogPostIds().includes(id);
 };

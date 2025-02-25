@@ -9,9 +9,11 @@
   --header-padding: 30px 29px;
   --logo-height: 58px;
 
+  --font-size-xxxl: 32px;
   --font-size-xxl: 28px;
   --font-size-xl: 24px;
   --font-size-lg: 20px;
+  --font-size-mdlg: 18px;
   --font-size-md: 16px;
   --font-size-sm: 14px;
   --font-size-xs: 12px;
@@ -59,6 +61,7 @@
   
   --blog-post-text-color: #1E2C3B;
   --blog-post-background-color: #F4F4F4;
+  --blog-content-description-color: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -90,6 +93,13 @@ body {
   background: var(--background);
   width: 100%;
   z-index: 2;
+}
+
+.main-wrapper .main-heading {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  color: var(--heading-text-color);
+  padding: 2.25rem 0 0.5rem 2.25rem;
 }
 
 .header-wrapper .logo {
@@ -153,17 +163,20 @@ body {
   overflow: visible;
 }
 
-/* category-card container */
 .category-card-container {
   display: grid;
-  grid-template-rows: 1fr 1fr; /* Top half & bottom half */
+  grid-template-rows: 1fr 1fr; 
   width: 100%;
-  max-width: 400px; /* Adjust as needed */
+  max-width: 400px; 
   height:433px;
   border-radius: var(--rounded-corners-border-radius);
   overflow: hidden;
   cursor: pointer;
   transition: border 0.2s ease;
+}
+
+.category-card-container.selected {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 }
 
 .category-card-image {
@@ -197,6 +210,7 @@ body {
   padding: 82px 2.25rem 0;
   flex-wrap: wrap;
   row-gap: 60px;
+  column-gap: 1rem;
 }
 
 .filter-wrapper .filter-header {
@@ -239,6 +253,13 @@ body {
   text-underline-offset: 25%;
 }
 
+.selected-categories .category-item .remove-category {
+  cursor: pointer;
+  transition: color 0.2s ease;
+  appearance: none;
+  border: none; 
+  background-color: transparent;
+}
 
 .filter-wrapper .filter-show {
   gap: 0.75rem;
@@ -298,6 +319,14 @@ body {
   text-underline-offset: 25%;
 }
 
+.blog-list-wrapper {
+  width: 100%;
+  min-height: 25vh;
+  display: flex;
+  padding: 2.25rem;
+  justify-content: center;
+  align-items: center;
+}
 .blog-list-wrapper .blog-list {
   list-style: none;
   padding: 0;
@@ -305,7 +334,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 3.5rem; 
-  padding: 2.25rem 0;
   justify-content: center;
 }
 
@@ -361,7 +389,75 @@ body {
 }
 
 
+.blog-post-details {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
 
+.blog-post-details .heading-wrapper {
+  gap: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.blog-post-details .heading-wrapper .main-heading {
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  color: var(--heading-text-color);
+  padding: 2.25rem 0;
+}
+
+.blog-post-details .favourites-action-button {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: var(--font-size-mdlg);
+  font-weight: 700;
+  color: var(--heading-text-color);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  appearance: none;
+  border: none; 
+  background-color: transparent;
+}
+
+.blog-post-details .blog-post-title {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  font-family: var(--blog-heading-font-family);
+  line-height: 2.875rem;
+}
+
+.blog-post-details .blog-post-description {
+  font-size: var(--font-size-md);
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.blog-post-details .blog-post-content h1, .blog-post-details .blog-post-content h2, .blog-post-details .blog-post-content h3, .blog-post-details .blog-post-content h4, .blog-post-details .blog-post-content h5, .blog-post-details .blog-post-content h6 {
+  font-family: var(--default-font-family);
+  color: var(  --heading-text-color);
+} 
+
+.blog-post-details .blog-post-content p {
+  font-size: var(--font-size-lg);
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  line-height: 2.25rem;
+  color: var(--blog-content-description-color);
+}
+
+.blog-post-details .blog-post-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 573px;
+  overflow: hidden;
+  border-radius: var(--rounded-corners-border-radius);
+  margin: 2rem 0;
+}
 
 * {
   box-sizing: border-box;
@@ -382,5 +478,8 @@ a {
 
 
 @media (min-width: 768px) {
-/* here will be styles for desktop/tablet screens */
+
+
+
+
 }

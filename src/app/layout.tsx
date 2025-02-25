@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import Image from "next/image";
 import plMessages from '../assets/i18n/pl.json';
 import "../assets/styles/styles.css";
+import { GlobalProvider } from "@/context/globalContext";
 
 export default function RootLayout({
   children,
@@ -23,7 +24,9 @@ export default function RootLayout({
              priority
            />
         </header>
-        {children}
+          <GlobalProvider>
+            {children}
+          </GlobalProvider>
         </NextIntlClientProvider>
       </body>
     </html>

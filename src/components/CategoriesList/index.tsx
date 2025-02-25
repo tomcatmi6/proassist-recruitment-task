@@ -8,9 +8,15 @@ import 'swiper/css/navigation';
 import CategoryCard from '../CategoryCard';
 import { CategoryType } from '@/types/categories';
 
-const CategoriesList: React.FC = () => {
+interface CategoriesListProps {
+    selectedCategories: CategoryType[];
+    onCategorySelect: (category: CategoryType) => void;
+}
+
+const CategoriesList: React.FC<CategoriesListProps> = ({onCategorySelect, selectedCategories=[]}) => {
     const t = useTranslations('categoriesList');
 
+    const isSelected = (category: CategoryType) => selectedCategories.includes(category);
     return (
         <section className="categories-list-wrapper">
             <h2 className="categories-list-title">{t('title')}</h2>
@@ -36,7 +42,7 @@ const CategoriesList: React.FC = () => {
             >
                 {Object.values(CategoryType).map((category) => (
                     <SwiperSlide key={category}>
-                        <CategoryCard name={category} isSelected={true} handleClick={() => null} />
+                        <CategoryCard name={category} isSelected={isSelected(category)} handleClick={() => onCategorySelect(category)} />
                     </SwiperSlide>
                 ))}
             </Swiper>
